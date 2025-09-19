@@ -14,9 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        'brand': ['My Underwood', 'Georgia', 'serif'],
-        'display': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        'brand': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        'display': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'SF Mono', 'Monaco', 'Cascadia Code', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",

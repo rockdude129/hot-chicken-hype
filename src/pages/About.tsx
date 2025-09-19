@@ -3,26 +3,26 @@ import { Users, Award, Heart, Zap } from 'lucide-react';
 
 const About = () => {
   const milestones = [
-    {
-      year: "2017",
-      title: "The Beginning",
-      description: "Dave's Hot Chicken was born in Nashville with a simple mission: serve the best hot chicken in the South."
-    },
-    {
-      year: "2019",
-      title: "Secret Recipe",
-      description: "After two years of perfecting our blend, we created the signature spice mix that makes Dave's special."
-    },
-    {
-      year: "2021",
-      title: "Community Love",
-      description: "Named 'Best Hot Chicken in Nashville' by Nashville Scene and became a local favorite."
-    },
-    {
-      year: "2024",
-      title: "Growing Strong",
-      description: "Today we continue serving authentic Nashville hot chicken with the same passion and quality."
-    }
+      {
+        year: "2017",
+        title: "The Beginning",
+        description: "CEO Nandan Pericherla founded Dave's Hot Chicken in Nashville with a mission to serve the best hot chicken in the South."
+      },
+      {
+        year: "2019",
+        title: "Secret Recipe",
+        description: "After two years of perfecting the blend, Nandan created the signature spice mix that makes Dave's special."
+      },
+      {
+        year: "2021",
+        title: "Community Love",
+        description: "Named 'Best Hot Chicken in Nashville' by Nashville Scene and became a local favorite under Nandan's leadership."
+      },
+      {
+        year: "2024",
+        title: "Growing Strong",
+        description: "Today, CEO Nandan continues leading the team in serving authentic Nashville hot chicken with the same passion and quality."
+      }
   ];
 
   const values = [
@@ -68,38 +68,39 @@ const About = () => {
       <section className="py-16 lg:py-24 bg-gradient-warm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
-            <div className="text-center mb-12">
-              <h2 className="font-brand text-3xl sm:text-4xl text-primary mb-6">
-                The Dave's Hot Chicken Story
-              </h2>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="font-brand text-3xl sm:text-4xl text-primary mb-6">
+              The Story Behind the Heat
+            </h2>
+          </div>
+          
+          <div className="bg-white rounded-lg shadow-soft p-8 lg:p-12">
+            <p className="text-lg leading-relaxed mb-6 text-foreground">
+              It all started in 2017 when Nandan Pericherla, a Nashville native with a passion for culinary excellence, 
+              had a simple but bold vision: create the most authentic, flavorful hot chicken experience that honors 
+              Nashville's rich culinary traditions while adding his own innovative twist.
+            </p>
             
-            <div className="bg-white rounded-lg shadow-soft p-8 lg:p-12">
-              <p className="text-lg leading-relaxed mb-6 text-foreground">
-                It all started in 2017 in a small Nashville kitchen, where Dave had a simple but bold vision: 
-                create the most authentic, flavorful hot chicken experience that honors Nashville's rich 
-                culinary traditions while adding his own passionate twist.
-              </p>
-              
-              <p className="text-lg leading-relaxed mb-6 text-foreground">
-                Growing up in Nashville, Dave was surrounded by the city's legendary hot chicken culture. 
-                But he noticed something missing - a place that combined the traditional Nashville heat 
-                with fresh, quality ingredients and genuine hospitality. That's when Dave's Hot Chicken was born.
-              </p>
-              
-              <p className="text-lg leading-relaxed mb-6 text-foreground">
-                What started as weekend pop-ups and farmer's market stands quickly grew into something special. 
-                Word spread about Dave's secret spice blend, the perfectly crispy chicken, and the warm 
-                community atmosphere. Customers didn't just come for the food - they came for the experience.
-              </p>
-              
-              <p className="text-lg leading-relaxed text-foreground">
-                Today, Dave's Hot Chicken continues that same mission: serving Nashville's finest hot chicken 
-                with authentic flavors, fresh ingredients, and the genuine hospitality that makes every 
-                customer feel like family. Because great hot chicken isn't just about the heat - 
-                it's about the heart.
-              </p>
-            </div>
+            <p className="text-lg leading-relaxed mb-6 text-foreground">
+              Growing up in Nashville, Nandan was surrounded by the city's legendary hot chicken culture. 
+              But he noticed something missing - a place that combined the traditional Nashville heat 
+              with fresh, quality ingredients and genuine hospitality. That's when Dave's Hot Chicken was born, 
+              named after his childhood nickname "Dave" that stuck throughout college.
+            </p>
+            
+            <p className="text-lg leading-relaxed mb-6 text-foreground">
+              What started as weekend pop-ups and farmer's market stands quickly grew into something special. 
+              Word spread about Nandan's secret spice blend, the perfectly crispy chicken, and the warm 
+              community atmosphere. Customers didn't just come for the food - they came for the experience.
+            </p>
+            
+            <p className="text-lg leading-relaxed text-foreground">
+              Today, under Nandan's leadership as CEO, Dave's Hot Chicken continues that same mission: 
+              serving Nashville's finest hot chicken with authentic flavors, fresh ingredients, and the genuine 
+              hospitality that makes every customer feel like family. Because great hot chicken isn't just about the heat - 
+              it's about the heart behind it.
+            </p>
+          </div>
           </div>
         </div>
       </section>
@@ -178,10 +179,10 @@ const About = () => {
       <section className="py-16 lg:py-24 bg-text-dark text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="font-brand text-3xl sm:text-4xl lg:text-5xl mb-6 text-brand-red">
-            Become Part of Our Story
+            Meet the Nandan Behind the Heat
           </h2>
           <p className="text-xl mb-8 text-gray-300 leading-relaxed">
-            Every customer who walks through our doors adds a new chapter to the Dave's Hot Chicken story. 
+            Every customer who walks through our doors adds a new chapter to CEO Nandan Pericherla's story. 
             Come taste the passion, feel the heat, and join our growing family.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

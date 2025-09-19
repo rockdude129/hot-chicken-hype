@@ -4,6 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Flame, Star } from 'lucide-react';
 
+// Import menu item images
+import classicHotChicken from '@/assets/classic-hot-chicken.jpg';
+import fireTenderCombo from '@/assets/fire-tender-combo.jpg';
+import nashvilleSandwich from '@/assets/nashville-sandwich.jpg';
+import theInferno from '@/assets/the-inferno.jpg';
+import mildWild from '@/assets/mild-wild.jpg';
+import hotChickenWrap from '@/assets/hot-chicken-wrap.jpg';
+
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState('chicken');
 
@@ -22,7 +30,8 @@ const Menu = () => {
         price: "$12.99",
         spiceLevel: 3,
         popular: true,
-        category: "Entrées"
+        category: "Entrées",
+        image: classicHotChicken
       },
       {
         name: "Fire Tender Combo",
@@ -30,15 +39,17 @@ const Menu = () => {
         price: "$15.99",
         spiceLevel: 4,
         popular: true,
-        category: "Combos"
+        category: "Combos",
+        image: fireTenderCombo
       },
       {
         name: "Nashville Sandwich",
-        description: "Hot chicken breast on a toasted brioche bun with pickles, slaw, and Dave's signature sauce",
+        description: "Hot chicken breast on a toasted brioche bun with pickles, slaw, and our signature sauce",
         price: "$13.99",
         spiceLevel: 2,
         popular: false,
-        category: "Sandwiches"
+        category: "Sandwiches",
+        image: nashvilleSandwich
       },
       {
         name: "The Inferno",
@@ -46,7 +57,8 @@ const Menu = () => {
         price: "$16.99",
         spiceLevel: 5,
         popular: false,
-        category: "Entrées"
+        category: "Entrées",
+        image: theInferno
       },
       {
         name: "Mild & Wild",
@@ -54,7 +66,8 @@ const Menu = () => {
         price: "$11.99",
         spiceLevel: 1,
         popular: false,
-        category: "Entrées"
+        category: "Entrées",
+        image: mildWild
       },
       {
         name: "Hot Chicken Wrap",
@@ -62,7 +75,8 @@ const Menu = () => {
         price: "$10.99",
         spiceLevel: 2,
         popular: false,
-        category: "Wraps"
+        category: "Wraps",
+        image: hotChickenWrap
       }
     ],
     sides: [
@@ -194,12 +208,21 @@ const Menu = () => {
         {/* Menu Items */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {menuItems[activeCategory as keyof typeof menuItems].map((item, index) => (
-            <Card key={index} className="group hover:shadow-warm transition-smooth relative">
+            <Card key={index} className="group hover:shadow-warm transition-smooth relative overflow-hidden">
               {item.popular && (
-                <Badge className="absolute -top-2 -right-2 bg-brand-red text-white border-0 z-10">
+                <Badge className="absolute top-4 right-4 bg-brand-red text-white border-0 z-10">
                   <Star size={12} className="mr-1 fill-current" />
                   Popular
                 </Badge>
+              )}
+              {'image' in item && (
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={`${item.name} - ${item.description}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                  />
+                </div>
               )}
               <CardHeader>
                 <div className="flex justify-between items-start">
@@ -238,7 +261,7 @@ const Menu = () => {
         {/* Heat Guide */}
         <div className="mt-16 bg-white rounded-lg shadow-soft p-8">
           <h3 className="font-brand text-2xl text-primary mb-6 text-center">
-            Dave's Heat Guide
+            Heat Guide
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
             {[

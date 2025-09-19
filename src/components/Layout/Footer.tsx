@@ -20,7 +20,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
-              Nashville's hottest chicken experience. Fresh, crispy, and made with love. 
+              Nashville's hottest chicken experience. Fresh, crispy, and made with love by CEO Nandan Pericherla and his team. 
               Come taste the fire that made us famous!
             </p>
             <div className="flex space-x-4">
