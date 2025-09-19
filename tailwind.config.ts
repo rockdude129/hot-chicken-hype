@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'brand': ['My Underwood', 'Georgia', 'serif'],
+        'display': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -22,10 +27,12 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          dark: "hsl(var(--primary-dark))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          light: "hsl(var(--secondary-light))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -46,6 +53,18 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        // Dave's Hot Chicken Brand Colors
+        brand: {
+          red: "hsl(var(--brand-red))",
+          yellow: "hsl(var(--brand-yellow))",
+          orange: "hsl(var(--brand-orange))",
+        },
+        neutral: {
+          warm: "hsl(var(--neutral-warm))",
+        },
+        text: {
+          dark: "hsl(var(--text-dark))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
