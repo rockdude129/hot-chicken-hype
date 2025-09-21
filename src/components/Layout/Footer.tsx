@@ -91,8 +91,13 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm mb-2">
             © 2024 Dave's Hot Chicken. All rights reserved. EST. 2017 Nashville, TN
+          </p>
+          <p className="text-gray-500 text-xs">
+            I built this site in 20 minutes.<br />
+            I used Lovable and Cursor to build this site.<br />
+            It took me 4 prompts to make this site.
           </p>
         </div>
       </div>
