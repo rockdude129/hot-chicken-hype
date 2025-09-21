@@ -10,17 +10,40 @@ const ComingSoon = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     
-    // Here you would typically send the email to a server
-    setIsSubscribed(true);
-    toast({
-      title: "You're on the list!",
-      description: "We'll notify you as soon as online ordering is available.",
-    });
-    setEmail('');
+    try {
+      const response = await fetch('https://formspree.io/f/mjkabywl', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          email,
+          subject: 'Online Ordering Newsletter Signup',
+          message: 'User signed up for online ordering notifications'
+        }),
+      });
+      
+      if (response.ok) {
+        setIsSubscribed(true);
+        toast({
+          title: "You're on the list!",
+          description: "We'll notify you as soon as online ordering is available.",
+        });
+        setEmail('');
+      } else {
+        throw new Error('Failed to subscribe');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to sign up. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const features = [
