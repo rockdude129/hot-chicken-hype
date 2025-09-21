@@ -24,13 +24,13 @@ const Footer = () => {
               Come taste the fire that made us famous!
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-brand-red transition-smooth">
+              <a href="https://www.facebook.com/GranadaHighPride/" className="text-gray-400 hover:text-brand-red transition-smooth">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-brand-red transition-smooth">
+              <a href="https://www.instagram.com/granadahighschool/" className="text-gray-400 hover:text-brand-red transition-smooth">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-brand-red transition-smooth">
+              <a href="https://x.com/granadapride" className="text-gray-400 hover:text-brand-red transition-smooth">
                 <Twitter size={20} />
               </a>
             </div>
@@ -74,8 +74,8 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <MapPin size={16} className="text-brand-red mt-1 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">
-                  123 Music Row<br />
-                  Nashville, TN 37203
+                  400 Wall St<br />
+                  Livermore, CA 94550
                 </span>
               </li>
               <li className="flex items-center space-x-2">
@@ -97,7 +97,7 @@ const Footer = () => {
           <p className="text-gray-500 text-xs">
             I built this site in 20 minutes.<br />
             I used Lovable and Cursor to build this site.<br />
-            It took me 4 prompts to make this site.
+            It took me 5 prompts to make this site.
           </p>
         </div>
       </div>

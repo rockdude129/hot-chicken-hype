@@ -173,8 +173,8 @@ const Contact = () => {
                 <div>
                   <h4 className="font-display font-semibold mb-2">Address</h4>
                   <p className="text-muted-foreground">
-                    123 Music Row<br />
-                    Nashville, TN 37203
+                    400 Wall St<br />
+                    Livermore, CA 94550
                   </p>
                 </div>
                 
@@ -231,21 +231,21 @@ const Contact = () => {
                 </p>
                 <div className="flex space-x-4">
                   <a 
-                    href="#" 
+                    href="https://www.facebook.com/GranadaHighPride/" 
                     className="p-3 bg-gradient-warm rounded-lg hover:bg-primary hover:text-white transition-smooth"
                     aria-label="Follow us on Facebook"
                   >
                     <Facebook size={20} />
                   </a>
                   <a 
-                    href="#" 
+                    href="https://www.instagram.com/granadahighschool/" 
                     className="p-3 bg-gradient-warm rounded-lg hover:bg-primary hover:text-white transition-smooth"
                     aria-label="Follow us on Instagram"
                   >
                     <Instagram size={20} />
                   </a>
                   <a 
-                    href="#" 
+                    href="https://x.com/granadapride" 
                     className="p-3 bg-gradient-warm rounded-lg hover:bg-primary hover:text-white transition-smooth"
                     aria-label="Follow us on Twitter"
                   >
