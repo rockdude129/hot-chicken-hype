@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Flame, Star } from 'lucide-react';
+import { Flame, Star, ShoppingCart } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
 
 // Import menu item images
 import classicHotChicken from '@/assets/classic-hot-chicken.jpg';
@@ -14,6 +16,8 @@ import hotChickenWrap from '@/assets/hot-chicken-wrap.jpg';
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState('chicken');
+  const { addToCart } = useCart();
+  const { user } = useAuth();
 
   const categories = [
     { id: 'chicken', name: 'Hot Chicken', icon: '🍗' },
@@ -159,6 +163,16 @@ const Menu = () => {
     ]
   };
 
+  const handleAddToCart = (item: any) => {
+    const price = parseFloat(item.price.replace('$', ''));
+    addToCart({
+      item_name: item.name,
+      item_price: price,
+      item_image: 'image' in item ? item.image : undefined,
+      item_description: item.description,
+    });
+  };
+
   const getSpiceIcons = (level: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Flame 
@@ -243,16 +257,34 @@ const Menu = () => {
                 <p className="text-muted-foreground mb-4 leading-relaxed">
                   {item.description}
                 </p>
-                {'spiceLevel' in item && (
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-foreground">
-                      Heat Level:
-                    </span>
-                    <div className="flex space-x-1">
-                      {getSpiceIcons(item.spiceLevel)}
+                <div className="space-y-4">
+                  {'spiceLevel' in item && (
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-foreground">
+                        Heat Level:
+                      </span>
+                      <div className="flex space-x-1">
+                        {getSpiceIcons(item.spiceLevel)}
+                      </div>
                     </div>
+                  )}
+                  
+                  <div className="flex items-center justify-between pt-2">
+                    <Button
+                      onClick={() => handleAddToCart(item)}
+                      className="flex items-center space-x-2 bg-gradient-hero hover:shadow-brand transition-smooth"
+                    >
+                      <ShoppingCart className="h-4 w-4" />
+                      <span>Add to Cart</span>
+                    </Button>
+                    
+                    {!user && (
+                      <p className="text-xs text-muted-foreground">
+                        Sign in to save your cart
+                      </p>
+                    )}
                   </div>
-                )}
+                </div>
               </CardContent>
             </Card>
           ))}

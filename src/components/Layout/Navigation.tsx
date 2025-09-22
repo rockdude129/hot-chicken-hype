@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogOut, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/contexts/AuthContext';
+import Cart from '../Cart';
 import logo from '@/assets/logo.png';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user, signOut } = useAuth();
 
   const navItems = [
     { path: '/', label: 'Home' },
@@ -34,7 +37,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -48,13 +51,41 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
-            <Button 
-              asChild
-              variant="default"
-              className="bg-gradient-hero hover:shadow-brand transition-smooth"
-            >
-              <Link to="/coming-soon">Order Now</Link>
-            </Button>
+            
+            {user ? (
+              <div className="flex items-center space-x-3">
+                <Cart />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={signOut}
+                  className="flex items-center space-x-2"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span>Sign Out</span>
+                </Button>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-3">
+                <Button 
+                  asChild
+                  variant="outline"
+                  size="sm"
+                >
+                  <Link to="/auth">
+                    <User className="h-4 w-4 mr-2" />
+                    Sign In
+                  </Link>
+                </Button>
+                <Button 
+                  asChild
+                  variant="default"
+                  className="bg-gradient-hero hover:shadow-brand transition-smooth"
+                >
+                  <Link to="/coming-soon">Order Now</Link>
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -86,15 +117,46 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
-              <div className="pt-2">
-                <Button 
-                  asChild 
-                  className="w-full bg-gradient-hero hover:shadow-brand transition-smooth"
-                >
-                  <Link to="/coming-soon" onClick={() => setIsOpen(false)}>
-                    Order Now
-                  </Link>
-                </Button>
+              <div className="pt-2 space-y-2">
+                {user ? (
+                  <div className="space-y-2">
+                    <div className="px-3">
+                      <Cart />
+                    </div>
+                    <Button 
+                      variant="outline"
+                      onClick={() => {
+                        signOut();
+                        setIsOpen(false);
+                      }}
+                      className="w-full flex items-center justify-center space-x-2"
+                    >
+                      <LogOut className="h-4 w-4" />
+                      <span>Sign Out</span>
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    <Button 
+                      asChild 
+                      variant="outline"
+                      className="w-full"
+                    >
+                      <Link to="/auth" onClick={() => setIsOpen(false)}>
+                        <User className="h-4 w-4 mr-2" />
+                        Sign In
+                      </Link>
+                    </Button>
+                    <Button 
+                      asChild 
+                      className="w-full bg-gradient-hero hover:shadow-brand transition-smooth"
+                    >
+                      <Link to="/coming-soon" onClick={() => setIsOpen(false)}>
+                        Order Now
+                      </Link>
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
