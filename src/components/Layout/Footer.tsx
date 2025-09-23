@@ -96,7 +96,7 @@ const Footer = () => {
           </p>
           <p className="text-gray-500 text-xs">
             I built this site in 20 minutes.<br />
-            I used Lovable and Cursor to build this site.<br />
+            I used Lovable and Supabase Authentication to build this site.<br />
             It took me 12 prompts to make this site.
           </p>
         </div>
