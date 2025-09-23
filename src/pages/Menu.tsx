@@ -6,158 +6,149 @@ import { Flame, Star, ShoppingCart } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useAuth } from '@/contexts/AuthContext';
 
-// Import menu item images
-import classicHotChicken from '@/assets/classic-hot-chicken.jpg';
-import fireTenderCombo from '@/assets/fire-tender-combo.jpg';
-import nashvilleSandwich from '@/assets/nashville-sandwich.jpg';
-import theInferno from '@/assets/the-inferno.jpg';
-import mildWild from '@/assets/mild-wild.jpg';
-import hotChickenWrap from '@/assets/hot-chicken-wrap.jpg';
+// Import Dave's Hot Chicken menu item images
+import boxOfFries from '@/assets/box-of-fries.jpg';
+import daves1TendersFries from '@/assets/daves-1-tenders-fries.jpg';
+import daves2SlidersFries from '@/assets/daves-2-sliders-fries.jpg';
+import daves3TenderSliderFries from '@/assets/daves-3-tender-slider-fries.jpg';
+import singleTender from '@/assets/single-tender.jpg';
+import singleSlider from '@/assets/single-slider.jpg';
+import davesBites from '@/assets/daves-bites.jpg';
+import fries from '@/assets/fries.jpg';
+import cheeseFries from '@/assets/cheese-fries.jpg';
+import macCheese from '@/assets/mac-cheese.jpg';
+import softDrink from '@/assets/soft-drink.jpg';
+import chocolateShake from '@/assets/chocolate-shake.jpg';
 
 const Menu = () => {
-  const [activeCategory, setActiveCategory] = useState('chicken');
+  const [activeCategory, setActiveCategory] = useState('meals');
   const { addToCart } = useCart();
   const { user } = useAuth();
 
   const categories = [
-    { id: 'chicken', name: 'Hot Chicken', icon: '🍗' },
+    { id: 'meals', name: 'Meals', icon: '🍗' },
+    { id: 'chicken', name: 'Chicken', icon: '🔥' },
     { id: 'sides', name: 'Sides', icon: '🍟' },
-    { id: 'drinks', name: 'Drinks', icon: '🥤' },
-    { id: 'desserts', name: 'Desserts', icon: '🍰' }
+    { id: 'drinks', name: 'Drinks & Shakes', icon: '🥤' }
   ];
 
   const menuItems = {
-    chicken: [
+    meals: [
       {
-        name: "Classic Hot Chicken",
-        description: "Our signature Nashville hot chicken breast, perfectly seasoned and fried to crispy perfection",
-        price: "$12.99",
+        name: "Dave's #1: 2 Tenders w/ Fries",
+        description: "All tenders are served with sliced bread, pickles and a side of Dave's sauce",
+        price: "$14.49",
         spiceLevel: 3,
         popular: true,
-        category: "Entrées",
-        image: classicHotChicken
+        category: "Combo",
+        image: daves1TendersFries
       },
       {
-        name: "Fire Tender Combo",
-        description: "Three blazing hot chicken tenders served with your choice of two sides",
-        price: "$15.99",
-        spiceLevel: 4,
+        name: "Dave's #2: 2 Sliders w/ Fries",
+        description: "Sliders are served on a potato bun with kale slaw, pickles and drizzled with Dave's sauce",
+        price: "$16.49",
+        spiceLevel: 3,
         popular: true,
-        category: "Combos",
-        image: fireTenderCombo
+        category: "Combo",
+        image: daves2SlidersFries
       },
       {
-        name: "Nashville Sandwich",
-        description: "Hot chicken breast on a toasted brioche bun with pickles, slaw, and our signature sauce",
-        price: "$13.99",
+        name: "Dave's #3: 1 Tender & 1 Slider w/ Fries",
+        description: "Sliders are served on a potato bun with kale slaw, pickles and drizzled with Dave's sauce & all tenders are served with sliced bread, pickles and a side of Dave's sauce",
+        price: "$15.49",
         spiceLevel: 2,
         popular: false,
-        category: "Sandwiches",
-        image: nashvilleSandwich
+        category: "Combo",
+        image: daves3TenderSliderFries
       },
       {
-        name: "The Inferno",
-        description: "Our hottest chicken for the brave souls. Served with cooling ranch and extra napkins",
-        price: "$16.99",
-        spiceLevel: 5,
-        popular: false,
-        category: "Entrées",
-        image: theInferno
+        name: "10 pc. Dave's Bites w/ Fries",
+        description: "White meat chicken tender bites served with a side of fries, a slice of bread, pickles, and side of Dave's sauce",
+        price: "$12.49",
+        spiceLevel: 3,
+        popular: true,
+        category: "Combo",
+        image: davesBites
+      }
+    ],
+    chicken: [
+      {
+        name: "Single Tender",
+        description: "All tenders are served with sliced bread, pickles, and a side of Dave's sauce",
+        price: "$6.49",
+        spiceLevel: 3,
+        popular: true,
+        category: "Individual",
+        image: singleTender
       },
       {
-        name: "Mild & Wild",
-        description: "Perfect for beginners - tender chicken with just enough spice to get your attention",
-        price: "$11.99",
-        spiceLevel: 1,
-        popular: false,
-        category: "Entrées",
-        image: mildWild
+        name: "Single Slider",
+        description: "Sliders are served on a potato bun with kale slaw, pickles and drizzled with Dave's sauce",
+        price: "$8.49",
+        spiceLevel: 3,
+        popular: true,
+        category: "Individual",
+        image: singleSlider
       },
       {
-        name: "Hot Chicken Wrap",
-        description: "Sliced hot chicken with fresh lettuce, tomatoes, and ranch in a flour tortilla",
-        price: "$10.99",
-        spiceLevel: 2,
+        name: "10pc. Dave's Bites",
+        description: "White meat chicken tender bites served with a slice of bread, pickles, and side of Dave's sauce",
+        price: "$8.99",
+        spiceLevel: 3,
         popular: false,
-        category: "Wraps",
-        image: hotChickenWrap
+        category: "Bites",
+        image: davesBites
       }
     ],
     sides: [
       {
-        name: "Seasoned Fries",
-        description: "Crispy golden fries tossed with our signature seasoning blend",
-        price: "$4.99",
-        popular: true
+        name: "Box of Fries",
+        description: "18 ounces of our awesomely seasoned and perfectly crispy fries!",
+        price: "$11.49",
+        popular: true,
+        image: boxOfFries
+      },
+      {
+        name: "Fries",
+        description: "Perfectly seasoned and crispy golden fries",
+        price: "$4.29",
+        popular: true,
+        image: fries
+      },
+      {
+        name: "Cheese Fries",
+        description: "Our crispy fries topped with melted cheese sauce",
+        price: "$5.29",
+        popular: true,
+        image: cheeseFries
       },
       {
         name: "Mac & Cheese",
-        description: "Creamy, three-cheese macaroni that pairs perfectly with our hot chicken",
-        price: "$5.99",
-        popular: true
-      },
-      {
-        name: "Coleslaw",
-        description: "Cool, creamy coleslaw that helps balance the heat",
-        price: "$3.99",
-        popular: false
-      },
-      {
-        name: "Loaded Baked Beans",
-        description: "Smoky baked beans with bacon and brown sugar",
-        price: "$4.99",
-        popular: false
-      },
-      {
-        name: "Pickles",
-        description: "House-made dill pickles - the perfect hot chicken companion",
-        price: "$2.99",
-        popular: false
+        description: "Creamy, rich macaroni and cheese",
+        price: "$4.29",
+        popular: true,
+        image: macCheese
       }
     ],
     drinks: [
       {
-        name: "Sweet Tea",
-        description: "Southern-style sweet tea to cool down the heat",
-        price: "$2.99",
-        popular: true
+        name: "Soft Drink",
+        description: "Choice of Coca-Cola, Diet Coke, Sprite, and more",
+        price: "$2.29",
+        popular: true,
+        image: softDrink
       },
       {
-        name: "Lemonade",
-        description: "Fresh-squeezed lemonade with just the right amount of tartness",
-        price: "$3.49",
-        popular: true
+        name: "Chocolate Shake",
+        description: "Rich and creamy chocolate milkshake",
+        price: "$5.49",
+        popular: true,
+        image: chocolateShake
       },
       {
-        name: "Craft Sodas",
-        description: "Selection of artisanal sodas including cola, root beer, and orange",
-        price: "$3.99",
-        popular: false
-      },
-      {
-        name: "Milk",
-        description: "Ice-cold whole milk - trust us, you might need it",
-        price: "$2.49",
-        popular: false
-      }
-    ],
-    desserts: [
-      {
-        name: "Honey Biscuit",
-        description: "Warm, fluffy biscuit drizzled with local honey",
-        price: "$3.99",
-        popular: true
-      },
-      {
-        name: "Peach Cobbler",
-        description: "Traditional Southern peach cobbler with vanilla ice cream",
-        price: "$6.99",
-        popular: true
-      },
-      {
-        name: "Chocolate Brownie",
-        description: "Rich, fudgy brownie that's the perfect end to a spicy meal",
-        price: "$4.99",
+        name: "Bottled Water",
+        description: "Refreshing bottled water",
+        price: "$2.79",
         popular: false
       }
     ]
